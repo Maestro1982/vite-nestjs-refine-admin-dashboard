@@ -1,3 +1,4 @@
+import DashboardLatestActivities from './home/latest-activities';
 import DashboardTotalCountCard from './home/total-count-card';
 import DealsChart from './home/deals-chart';
 import UpcomingEvents from './home/upcoming-events';
@@ -9,6 +10,7 @@ import ProjectCardSkeleton from './skeleton/project-card';
 import UpcomingEventsSkeleton from './skeleton/upcoming-events';
 
 export {
+  DashboardLatestActivities,
   DashboardTotalCountCard,
   DealsChart,
   UpcomingEvents,
