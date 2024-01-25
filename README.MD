@@ -2,6 +2,11 @@
 
 React-based CRM dashboard featuring comprehensive authentication, antd charts, sales management, and a fully operational kanban board with live updates for real-time actions across all devices.
 
+🔑 Login Credentials
+
+Email: michael.scott@dundermifflin.com
+Password: demodemo
+
 ⚙️ Tech Stack
 
 - React.js
