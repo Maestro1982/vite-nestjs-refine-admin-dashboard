@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import { useForm } from "@refinedev/antd";
-import { HttpError, useInvalidate } from "@refinedev/core";
-import { GetFields, GetVariables } from "@refinedev/nestjs-query";
+import { useForm } from '@refinedev/antd';
+import { HttpError, useInvalidate } from '@refinedev/core';
+import { GetFields, GetVariables } from '@refinedev/nestjs-query';
 
-import { Form, Skeleton } from "antd";
+import { Form, Skeleton } from 'antd';
 
-import { Text } from "@/components";
-import { Task } from "@/graphql/schema.types";
+import { Text } from '@/components';
+import { Task } from '@/graphql/schema.types';
 import {
   UpdateTaskMutation,
   UpdateTaskMutationVariables,
-} from "@/graphql/types";
+} from '@/graphql/types';
 
-import { UPDATE_TASK_MUTATION } from "@/graphql/mutations";
+import { UPDATE_TASK_MUTATION } from '@/graphql/mutations';
 
 const TitleInput = ({
   value,
@@ -31,7 +31,7 @@ const TitleInput = ({
       editable={{
         onChange: onTitleChange,
       }}
-      style={{ width: "98%" }}
+      style={{ width: '98%' }}
     >
       {value}
     </Text>
@@ -40,7 +40,7 @@ const TitleInput = ({
 
 type Props = {
   initialValues: {
-    title?: Task["title"];
+    title?: Task['title'];
   };
   isLoading?: boolean;
 };
@@ -67,7 +67,7 @@ export const TitleForm = ({ initialValues, isLoading }: Props) => {
      * Type -> the type from which we want to pick the properties
      * Keys -> the properties that we want to pick
      */
-    Pick<GetVariables<UpdateTaskMutationVariables>, "title">
+    Pick<GetVariables<UpdateTaskMutationVariables>, 'title'>
   >({
     queryOptions: {
       // disable the query to prevent fetching data on component mount
@@ -89,7 +89,7 @@ export const TitleForm = ({ initialValues, isLoading }: Props) => {
     // invalidate the list page of the tasks resource when the mutation is successful
     onMutationSuccess: () => {
       // refetch the list page of the tasks resource
-      invalidate({ invalidates: ["list"], resource: "tasks" });
+      invalidate({ invalidates: ['list'], resource: 'tasks' });
     },
     meta: {
       gqlMutation: UPDATE_TASK_MUTATION,
@@ -99,13 +99,13 @@ export const TitleForm = ({ initialValues, isLoading }: Props) => {
   // set the title of the form to the title of the task
   React.useEffect(() => {
     formProps.form?.setFieldsValue(initialValues);
-  }, [initialValues.title]);
+  }, [initialValues.title, formProps.form, initialValues]);
 
   if (isLoading) {
     return (
       <Skeleton.Input
-        size="small"
-        style={{ width: "95%", height: "22px" }}
+        size='small'
+        style={{ width: '95%', height: '22px' }}
         block
       />
     );
@@ -113,7 +113,7 @@ export const TitleForm = ({ initialValues, isLoading }: Props) => {
 
   return (
     <Form {...formProps} initialValues={initialValues}>
-      <Form.Item noStyle name="title">
+      <Form.Item noStyle name='title'>
         <TitleInput />
       </Form.Item>
     </Form>
