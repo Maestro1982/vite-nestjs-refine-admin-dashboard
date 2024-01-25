@@ -19,7 +19,7 @@ import {
 } from '@/constants';
 import { CompanyContactsTable } from './contacts-table';
 
-const EditPage = () => {
+export const EditPage = () => {
   const { saveButtonProps, formProps, formLoading, queryResult } = useForm({
     redirect: false,
     meta: {
@@ -112,5 +112,3 @@ const EditPage = () => {
     </div>
   );
 };
-
-export default EditPage;
